@@ -45,54 +45,67 @@ const personalLink = getComputedStyle(document.body).getPropertyValue('--ldk-lin
 const iconButtonsFull = document.querySelectorAll('.icon-button-full')
 iconButtonsFull.forEach(button => {
     let socialLink = ""
+    let isPhone = false
     const socialIcon = document.createElement('svg')
     if(button.getAttribute('icon') == 'instagram'){
         socialIcon.innerHTML = INSTAGRAM_ICON
         socialLink = instagramLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'pinterest'){
         socialIcon.innerHTML = PINTEREST_ICON
         socialLink = pinterestLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'soundcloud'){
         socialIcon.innerHTML = SOUNDCLOUD_ICON
         socialLink = soundcloudLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'facebook'){
         socialIcon.innerHTML = FACEBOOK_ICON
         socialLink = facebookLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'youtube'){
         socialIcon.innerHTML = YOUTUBE_ICON
         socialLink = youtubeLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'twitter'){
         socialIcon.innerHTML = TWITTER_ICON
         socialLink = twitterLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'spotify'){
         socialIcon.innerHTML = SPOTIFY_ICON
         socialLink = spotifyLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'linkedin'){
         socialIcon.innerHTML = LINKEDIN_ICON
         socialLink = linkedinLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'snapchat'){
         socialIcon.innerHTML = SNAPCHAT_ICON
         socialLink = snapchatLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'email'){
         socialIcon.innerHTML = EMAIL_ICON
         socialLink = emailLink
+        isPhone = false
     }
     else if(button.getAttribute('icon') == 'phone'){
         socialIcon.innerHTML = PHONE_ICON
         socialLink = phoneLink.substring(2,phoneLink.length-1)
+        isPhone = true
     }
     else if(button.getAttribute('icon') == 'personal'){
         socialIcon.innerHTML = LOGO_ICON
         socialLink = personalLink
+        isPhone = false
     }
 
 
@@ -100,7 +113,11 @@ iconButtonsFull.forEach(button => {
     const buttonText = document.createElement('p')
     buttonText.innerHTML = button.getAttribute('text')
     button.appendChild(buttonText)
-    button.onclick = function(){ window.open(socialLink)}
+    if(isPhone){
+        button.onclick = function(){ window.open(socialLink, '_self')}
+    }else{
+        button.onclick = function(){ window.open(socialLink)}
+    }
 })
 
 /**
