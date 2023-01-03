@@ -99,8 +99,8 @@ iconButtonsFull.forEach(button => {
     }
     else if(button.getAttribute('icon') == 'phone'){
         socialIcon.innerHTML = PHONE_ICON
-        console.log(socialLink)
-        socialLink = phoneLink.substring(2,phoneLink.length-1)
+        // console.log(socialLink)
+        // socialLink = phoneLink.substring(2,phoneLink.length-1)
         isPhone = true
     }
     else if(button.getAttribute('icon') == 'personal'){
@@ -114,9 +114,7 @@ iconButtonsFull.forEach(button => {
     const buttonText = document.createElement('p')
     buttonText.innerHTML = button.getAttribute('text')
     button.appendChild(buttonText)
-    if(isPhone){
-        button.onclick = function(){ window.open(socialLink, '_self')}
-    }else{
+    if(!isPhone){
         button.onclick = function(){ window.open(socialLink)}
     }
 })
