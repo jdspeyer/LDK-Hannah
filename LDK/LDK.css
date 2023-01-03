@@ -341,6 +341,16 @@ Buttons
     align-items: center;
     justify-content: center;
 }
+a{
+    text-decoration: none;
+    width: 100%;
+}
+a:active{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
 
 
 /**-------------
