@@ -99,6 +99,7 @@ iconButtonsFull.forEach(button => {
     }
     else if(button.getAttribute('icon') == 'phone'){
         socialIcon.innerHTML = PHONE_ICON
+        console.log(socialLink)
         socialLink = phoneLink.substring(2,phoneLink.length-1)
         isPhone = true
     }
